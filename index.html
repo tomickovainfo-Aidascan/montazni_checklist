@@ -238,9 +238,57 @@ footer { background:#0a0a0a; padding:20px; text-align:center; }
 .footer-legal a:hover { color:var(--gold); }
 
 @media print {
-  nav, .zakazky-grid, .btn-reset, .btn-print, .cta-mini, footer { display:none !important; }
+  /* Skryt nepotrebne */
+  nav, .zakazky-grid, .btn-reset, .btn-print, .cta-mini, footer,
+  .tool-badge, .reset-row, .podpis-sekce .btn-podpis { display:none !important; }
+
+  /* Zobrazit vsechny checklisty */
   .checklist-wrap { display:block !important; }
   .kategorie.collapsed .kategorie-body { display:block !important; }
+
+  /* Odstranit prazdne misto */
+  body { margin:0; padding:0; background:white; }
+  .main { padding:0 !important; }
+  .page-header { padding:12px 16px !important; border:none; }
+  .page-header h1 { font-size:16px !important; }
+  .page-header p { font-size:11px !important; }
+
+  /* Kompaktni polozky */
+  .polozka { padding:5px 10px !important; }
+  .polozka-nazev { font-size:11px !important; }
+  .polozka-note { font-size:10px !important; }
+  .kategorie-header { padding:8px 12px !important; }
+  .kat-name { font-size:11px !important; }
+  .progress-bar-wrap { display:none !important; }
+  .done-banner { display:none !important; }
+
+  /* Potvrzeni podpisu - zobrazit kompaktne */
+  .podpis-sekce { 
+    border:1px solid #ccc !important; 
+    padding:10px 12px !important;
+    margin-top:8px !important;
+    page-break-inside:avoid;
+  }
+  .podpis-result { 
+    display:block !important; 
+    background:white !important;
+    color:black !important;
+    border:1px solid #ccc !important;
+    font-size:11px !important;
+    padding:6px 10px !important;
+  }
+  .podpis-input { border:1px solid #ccc !important; font-size:11px !important; }
+
+  /* Strankovani */
+  .checklist-wrap { page-break-before:always; }
+  .checklist-wrap:first-of-type { page-break-before:avoid; }
+  .kategorie { page-break-inside:avoid; }
+
+  /* Format stranky */
+  @page {
+    size:A4;
+    margin:10mm 12mm;
+  }
 }
 
 .podpis-sekce {
